@@ -11,29 +11,23 @@
   display: grid;
 }
 
-.label{
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  font-size: 1rem;
-}
-
 .input{
   font-size: 0.8rem;
   padding: 0.2rem 0.5rem;
-  line-height: 1rem;
+  line-height: 1.5rem;
   border-radius: 10px;
   border: 1px solid black;
   margin-bottom: 1rem;
 }
 
 .button{
-  max-width: 10rem;
   background-color: rgba(0,0,0,0.75);
   color: white;
   border: 1px solid rgba(0,0,0,0.75);
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 250ms;
+  line-height: 1.5rem;
 }
 
 .button:hover{
@@ -41,17 +35,23 @@
 }
 
 .card-list{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 100px);
+  margin-top: 2rem;
+  display: flex;
+  grid-template-columns: repeat(2,auto);
 }
 
 @media (min-width:786px){
   .form{
-    grid-template-columns: auto 1fr auto;
+    display:flex;
+    justify-content: center;
   }
 
   .input{
+    width: 30rem;
     margin-bottom: 0rem;
+  }
+
+  .button{
   }
 }
 
