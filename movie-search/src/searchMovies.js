@@ -15,6 +15,7 @@ export default function SearchMovies(){
                 const res = await fetch(url);
                 const data = await res.json();
                 setMovies(data.results);
+                console.log(movies);
             }catch(err){
                 console.error(err);
             }
@@ -30,16 +31,18 @@ export default function SearchMovies(){
             </form>
             <CardColumns>
                 {movies.filter(movie => movie.poster_path).map(movie => (
-                        <Card className="mb-2 w-75" key={movie.id}>
+                        <Card className="mb-2 w-75 card" key={movie.id}>
                             <Card.Img
-                            src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
-                            alt={"movie.title" + " poster"}
+                                src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
+                                alt={`${movie.title} +  poster`}
                             />
                             <Card.Body>
                                 <Card.Title>
                                     <h3>{movie.title}</h3>
                                 </Card.Title>
                                 <Card.Text>
+                                    <p>Rating: {movie.vote_average === 0 ? `No Rating` : movie.vote_average}</p>
+                                    <p>Release Date: {movie.release_date}</p>
                                     <p>{movie.overview}</p>
                                 </Card.Text>
                             </Card.Body>
